@@ -1,73 +1,77 @@
-"""
-@author Maria
-
-version 2.0
-
-Atributos: base y altura
-Acciones: perímetro, area, madificador atributo(set), observador(get), comparar y dibujar
-"""
-
-
+# -*- coding: utf-8 -*-
 
 class Rectangulo:
     """
-    Esta clase representa objetos de tipo rectangulo.
+    Versión 1.0
+    
+    Esta clase representa objetos de tipo rectángulo.
+
+    Acciones: cálculo del perímetro, área, dibujar y comparar.
+
+    Hay cosas que mejorar, en la siguiente se explica
     """
     def __init__(self, base, altura):
         """
-        Costructor de la clase
-        :param base: base del rectangulo
-        :param altura: altura del rectangulo
+        Constructor de la clase
+        :param base: base del rectángulo
+        :param altura: altura del rectángulo
         """
-        self.__base = base
-        self.__altura = altura
-
+        self.base = base
+        self.altura = altura
+    
     def perimetro(self):
         """
-        :return: perimetro del rectangulo
+        Devuelve el perímetro del rectángulo
+        :return perímetro del rectángulo
         """
-
-        return 2*(self.__base + self.__altura)
-
+        return 2 * (self.base + self.altura)
+    
     def area(self):
         """
-        :return: area del rectángulo
+        Devuelve el área del rectángulo
+        :return área del rectángulo
         """
-        return self.__base * self.__altura
-
-    def compara(self, otro):
+        return self.base * self.altura
+    
+    def compara(self, rectangulo):
         """
-        Compara nuestro rectangulo con otro
-        :param otro: objeto con el que comparamos el actual
-        :return: >0 si es mayor, 0 si es igual y <0 si es menor.
+        Compara nuestro rectángulo con otro
+        :param rectangulo: objeto con el que comparamos el actual
+        :return >0 si mayor, 0 si igual, <0 si menor
         """
-        return self.area()-otro.area()
-
-    def esgemelo(self, otro):
+        return self.area() - rectangulo.area()
+    
+    def es_gemelo(self, rectangulo):
         """
-        comprueba si el objeto pasado es el mismo rectángulo, tiene igual base y altura
-        :return: True o False
+        Comprueba si el objeto pasado es el mismo rectángulo o sea,
+        tiene la misma base y altura
+        :param rectangulo: objeto con el que comparamos el actual
+        :return True o False
         """
-        return self.__base == otro.base and self.__altura == otro.altura
+        return self.base == rectangulo.base and self.altura == rectangulo.altura
 
     def muestra(self):
         """
         Muestra en pantalla el rectángulo
-        :return:
         """
-        for i in range(self.__altura):
-            print("*" * self.__base)
+        for i in range(self.altura):
+            print("*" * self.base)
 
-if __name__== "__main__":
-    r1= Rectangulo(4, 1)
-    r2= Rectangulo(3, 2)
+if __name__ == "__main__":
 
+    r1 = Rectangulo(4, 1)
+    r2 = Rectangulo(3, 2)
+    print(f"Probamos clase Rectángulo con ({r1.base},{r1.altura}) y ({r2.base},{r2.altura})\n")
+
+    # Mostramos los rectángulos
     r1.muestra()
+    print()
     r2.muestra()
 
-    print("comparar r1 con r2", r1.compara(r2))
+    # Comparamos los rectángulos
+    print("Resultado de comparar r1 con r2:", r1.compara(r2))
+    print("¿Son gemelos?", r1.es_gemelo(r2))
 
-    print("r1 son gemelos", r1.esgemelo(r2))
-
-    print("area r1:", r1.area(), "perimetro r1:" , r1.perimetro() )
-    print("area r2:", r2.area(), "perimetro r2:" , r2.perimetro() )
+    # Magnitudes de los rectángulos
+    print("Área r1:", r1.area(), "Perímetro r1:", r1.perimetro())
+    print("Área r2:", r2.area(), "Perímetro r2:", r2.perimetro())
