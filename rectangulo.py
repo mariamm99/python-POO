@@ -1,15 +1,14 @@
-# -*- coding: utf-8 -*-
-
 class Rectangulo:
     """
     Versión 1.0
-    
+
     Esta clase representa objetos de tipo rectángulo.
 
     Acciones: cálculo del perímetro, área, dibujar y comparar.
 
     Hay cosas que mejorar, en la siguiente se explica
     """
+
     def __init__(self, base, altura):
         """
         Constructor de la clase
@@ -18,21 +17,21 @@ class Rectangulo:
         """
         self.base = base
         self.altura = altura
-    
+
     def perimetro(self):
         """
         Devuelve el perímetro del rectángulo
         :return perímetro del rectángulo
         """
         return 2 * (self.base + self.altura)
-    
+
     def area(self):
         """
         Devuelve el área del rectángulo
         :return área del rectángulo
         """
         return self.base * self.altura
-    
+
     def compara(self, rectangulo):
         """
         Compara nuestro rectángulo con otro
@@ -40,15 +39,15 @@ class Rectangulo:
         :return >0 si mayor, 0 si igual, <0 si menor
         """
         return self.area() - rectangulo.area()
-    
-    def es_gemelo(self, rectangulo):
+
+    def es_gemelo(self, otro):
         """
         Comprueba si el objeto pasado es el mismo rectángulo o sea,
         tiene la misma base y altura
-        :param rectangulo: objeto con el que comparamos el actual
+        :param otro: objeto con el que comparamos el actual
         :return True o False
         """
-        return self.base == rectangulo.base and self.altura == rectangulo.altura
+        return self.base == otro.base and self.altura == otro.altura
 
     def muestra(self):
         """
@@ -57,8 +56,8 @@ class Rectangulo:
         for i in range(self.altura):
             print("*" * self.base)
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     r1 = Rectangulo(4, 1)
     r2 = Rectangulo(3, 2)
     print(f"Probamos clase Rectángulo con ({r1.base},{r1.altura}) y ({r2.base},{r2.altura})\n")
